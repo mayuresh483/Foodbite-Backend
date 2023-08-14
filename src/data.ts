@@ -31,3 +31,20 @@ export const sample_tags:any[] = [
     {name:"Fry",count:1},
     {name:"Soup",count:3},
 ];
+
+export const sample_users: any[] = [
+    {
+      name: "Mayuresh Yerendekar",
+      email: "mayur123@gmail.com",
+      password: "12345",
+      address: "Mumbai Maharashtra",
+      isAdmin: true,
+    },
+    {
+      name: "Mayur Y",
+      email: "mayur123@gmail.com",
+      password: "12345",
+      address: "Thane Maharashtra",
+      isAdmin: false,
+    },
+  ];
