@@ -1,6 +1,6 @@
 export const sample_foods:any[] = [
     {
-        id:'1',
+        // id:'1',
         name:'cheese Pizza',
         price:120,
         cookTime:'30-45',
@@ -11,7 +11,7 @@ export const sample_foods:any[] = [
         tags:['Junkfood','pizza']
     },
     {
-        id:'2',
+        // id:'2',
         name:'Chinese Pizza',
         price:128,
         cookTime:'20-45',
