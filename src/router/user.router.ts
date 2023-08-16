@@ -21,8 +21,8 @@ router.get("/seed", asyncHandler(
 
 const generateTokenResponse = (user:any)=>{
     const token = jwt.sign({
-        email:user.email, isAdmin:user.isAdmin
-    },"HeyBuddy",{
+        id:user.id ,email:user.email, isAdmin:user.isAdmin
+    },process.env.JWT_SECRET!,{
         expiresIn:'2d'
     });
     user.token = token;

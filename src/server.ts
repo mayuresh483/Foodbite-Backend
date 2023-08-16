@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import FoodRouter from './router/food.router';
 import UserRoute from './router/user.router';
+import OrderRoute from './router/order.router';
 import dotenv from 'dotenv';
 import { dbConnect } from './config/database.config';
 
@@ -20,6 +21,7 @@ app.use(express.json());
 
 app.use("/api/foods",FoodRouter);
 app.use('/api/users',UserRoute);
+app.use('/api/orders',OrderRoute);
 
 app.listen(port,()=>{
     console.log("App listening on port :"+port);
