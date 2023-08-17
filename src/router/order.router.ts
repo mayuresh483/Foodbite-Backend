@@ -23,6 +23,32 @@ route.post('/create',asyncHandler(
         const newOrder = new OrderModel({...requestOrder,user:req.user.id})
         await newOrder.save();
         res.send(newOrder);
-}))
+}));
+
+route.get('/currentOrder', asyncHandler(
+    async(req:any,res:any)=>{
+       const order = await OrderModel.findOne({user:req.user.id,status:OrderStatus.NEW}); 
+        if(order)
+       res.send(order);
+        else res.status(400).send();
+    }
+));
+
+route.get('/pay', asyncHandler(
+    async(req:any,res:any)=>{
+        const {paymentId} = req.body;
+        const order = await OrderModel.findOne({user:req.user.id,status:OrderStatus.NEW}); 
+        if(!order){
+            res.send(order);
+            return;
+        }
+
+        order.paymentId = paymentId;
+        order.status = OrderStatus.PAYED;
+        await order.save();
+
+        res.send(order._id);
+    }
+))
 
 export default route;
